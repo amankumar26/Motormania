@@ -1,4 +1,44 @@
 /* styles.css */
+
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  
+}
+#main-content {
+  flex: 1; /* Takes up remaining space */
+}
+
+body {
+  /* Apply a gradient background */
+  background: rgb(108, 110, 110);
+  min-height: 100vh; /* Ensure the body takes full height */
+}
+
+footer {
+  background: rgba(
+    0,
+    0,
+    0,
+    0.6
+  ); /* Add a slightly transparent background for the footer */
+}
+
+.card {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.card:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
 .card {
   transition: opacity 0.3s ease-in-out;
   background: rgba(72, 30, 211, 0.3);
@@ -6,9 +46,7 @@
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
   border-radius: 15px;
   width:85%
-  justify-content:center;   
-  align-items: center;
-}
+} 
 
 .card:hover {
   opacity: 0.75;
@@ -23,14 +61,34 @@ footer {
   background: rgba(0, 0, 0, 0.6); /* Add a slightly transparent background for the footer */
 }
 
-.card {
- 
-  /* Slightly transparent white for cards */
-}
 
 .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+/* Set the background color to white */
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd; /* Add a border to separate the navbar from the body content */
+  z-index: 1000;
+}
 
-  bbox-shadow: 0 6px 10px rgb(235, 235, 235);
-  transition: opacity 0.3s ease-in-out;
+body {
+  padding-top: 60px; /* Add padding to the body to make room for the navbar */
+}
   /* Slightly transparent white */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .navbar ul {
+    display: none;
+  }
+  .navbar ul li {
+    margin-bottom: 1rem;
+  }
 }

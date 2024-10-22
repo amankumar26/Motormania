@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car API Request</title>
+</head>
+<body>
+    <h1>Car API Demo</h1>
+    <button id="fetchCarsBtn">Fetch Car Descriptions</button>
+
+    <script>
+        document.getElementById("fetchCarsBtn").addEventListener("click", function() {
+            // Define an array of car models
+            const carModels = ['civic', 'corolla', 'mustang', 'camry'];
+            
+            // Iterate through the array of car models and make an API request for each
+            carModels.forEach(function(model) {
+                $.ajax({
+                    method: 'GET',
+                    url: 'https://api.api-ninjas.com/v1/cars?model=' + model,
+                    headers: { 'X-Api-Key': 'Z1T6/P6FYvl/UPfmjwozfw==aSNOr1U3VzThyEzj'},
+                    contentType: 'application/json',
+                    success: function(result) {
+                        console.log('Model: ' + model, result);
+                    },
+                    error: function ajaxError(jqXHR) {
+                        console.error('Error fetching model ' + model + ':', jqXHR.responseText);
+                    }
+                });
+            });
+        });
+    </script>
+
+    <!-- Add jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</body>
+</html>
